@@ -39,16 +39,24 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     reply = create_reply(event.message.text)
+    #event.message.textにLINEで送ったメッセージが入る
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=reply))
+        TextSendMessage(text=event.message.text))
+    #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
-    apikey = 'DZZPKSBU5XUE5wY9tfXf4QCEuOdg36C1'
-    client = pya3rt.TalkClient(apikey)
-    res = client.talk(user_text)
+    if user_text == "こんにちは":
+        return "こんにちはー！"
+    elif user_text == "のん":
+        return "うし"
+    else:
+        return "間違いだよ"
+    #apikey = 'DZZPKSBU5XUE5wY9tfXf4QCEuOdg36C1'
+    #client = pya3rt.TalkClient(apikey)
+    #res = client.talk(user_text)
 
-    return res['results'][0]['reply']
+    #return res['results'][0]['reply']
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
