@@ -46,11 +46,17 @@ def handle_message(event):
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
-    apikey = 'DZZPKSBU5XUE5wY9tfXf4QCEuOdg36C1'
-    client = pya3rt.TalkClient(apikey)
-    res = client.talk(user_text)
+    if user_text == 'のん':
+        return 'うしうし'
+    elif user_text == 'しゅん':
+        return 'たこしぇ'
+    else:
+        return 'のんかしゅんって打ってね'
+    #apikey = 'DZZPKSBU5XUE5wY9tfXf4QCEuOdg36C1'
+    #client = pya3rt.TalkClient(apikey)
+    #res = client.talk(user_text)
 
-    return res['results'][0]['reply']
+    #return res['results'][0]['reply']
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
