@@ -82,10 +82,12 @@ def newstop5(user_text):
                 #return newslink
                 #continue
                 count += 1
+                return newstext, newslink
+                continue
             if count >= 5:
                 break
 
-                return newstext, newslink
+                #return newstext, newslink
     else:
         return 'ニュースと入力してください。'
 
