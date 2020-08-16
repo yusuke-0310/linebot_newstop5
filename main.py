@@ -13,6 +13,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+
 import requests
 
 from bs4 import BeautifulSoup
@@ -42,7 +43,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     reply = create_reply(event.message.text)
-    news = newstop5(event.message.text)
+    #news = newstop5(event.message.text)
     #event.message.textにLINEで送ったメッセージが入る
     line_bot_api.reply_message(
         event.reply_token,
@@ -71,13 +72,13 @@ def newstop5(user_text):
     if user_text == 'ニュース':
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
-                #text = div_title.text
-                return text
+                newstext = div_title.text
+                return newstext
                 #print(div_title.text)
             for div_title_link in div_flashSummary_primary[count].find_all('a'):
                 div_title_link = div_title_link.get('href')
-                link = div_title_link
-                #return link
+                newslink = div_title_link
+                return newslink
                 #print(div_title_link)
                 count += 1
             if count >= 5:
