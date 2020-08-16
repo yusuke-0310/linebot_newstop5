@@ -57,8 +57,6 @@ def create_reply(user_text):
     return res['results'][0]['reply']
 
 def newstop5(user_text):
-    if user_text == 'ニュース':
-        return = 'ニュース'
     url = 'https://news.yahoo.co.jp/flash?p=1'
     response = requests.get(url)
     response.encoding = response.apparent_encoding
@@ -73,13 +71,13 @@ def newstop5(user_text):
     if user_text == 'ニュース':
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
-                text = div_title.text
+                #text = div_title.text
                 return text
                 #print(div_title.text)
             for div_title_link in div_flashSummary_primary[count].find_all('a'):
                 div_title_link = div_title_link.get('href')
                 link = div_title_link
-                return link
+                #return link
                 #print(div_title_link)
                 count += 1
             if count >= 5:
