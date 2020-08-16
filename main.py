@@ -74,7 +74,7 @@ def newstop5(user_text):
             for div_title_link in div_flashSummary_primary[count].find_all('a'):
                 div_title_link = div_title_link.get('href')
                 newslink = div_title_link
-                #return newslink
+                return newslink
                 #print(div_title_link)
 
                 #return newstext
@@ -82,8 +82,8 @@ def newstop5(user_text):
                 #return newslink
                 #continue
                 count += 1
-                return newstext, newslink
-                continue
+                #return newstext, newslink
+                #continue
             if count >= 5:
                 break
 
