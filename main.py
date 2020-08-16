@@ -58,6 +58,7 @@ def create_reply(user_text):
     return res['results'][0]['reply']
 
 def newstop5(user_text):
+    print('成功')
     url = 'https://news.yahoo.co.jp/flash?p=1'
     response = requests.get(url)
     response.encoding = response.apparent_encoding
@@ -78,7 +79,9 @@ def newstop5(user_text):
                 #print(div_title_link)
 
                 return newstext
+                continue
                 return newslink
+                continue
                 count += 1
             if count >= 5:
                 break
