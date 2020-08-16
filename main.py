@@ -43,7 +43,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     reply = create_reply(event.message.text)
-    #news = newstop5(event.message.text)
+    news = newstop5(event.message.text)
     #event.message.textにLINEで送ったメッセージが入る
     line_bot_api.reply_message(
         event.reply_token,
@@ -83,6 +83,8 @@ def newstop5(user_text):
                 count += 1
             if count >= 5:
                 break
+    else:
+        return 'ニュースと入力してください。'
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
