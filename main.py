@@ -59,14 +59,14 @@ def create_reply(user_text):
 
 def newstop5(user_text):
     if user_text == 'ニュース':
-    return "成功"
-    url = 'https://news.yahoo.co.jp/flash?p=1'
-    response = requests.get(url)
-    response.encoding = response.apparent_encoding
-    response = response.text
-    bs = BeautifulSoup(response, 'html.parser')
-    div_flashSummary_primary = bs.select('div.flashSummary_primary')
-    count = 0
+        return "成功"
+        url = 'https://news.yahoo.co.jp/flash?p=1'
+        response = requests.get(url)
+        response.encoding = response.apparent_encoding
+        response = response.text
+        bs = BeautifulSoup(response, 'html.parser')
+        div_flashSummary_primary = bs.select('div.flashSummary_primary')
+        count = 0
     #if user_text == 'ニュース':
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
