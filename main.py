@@ -77,8 +77,8 @@ def newstop5(user_text):
                 #return newslink
                 #print(div_title_link)
 
-                print(newstext)
-                print(newslink)
+                return newstext
+                return newslink
                 count += 1
             if count >= 5:
                 break
