@@ -47,7 +47,7 @@ def handle_message(event):
     #event.message.textにLINEで送ったメッセージが入る
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=news))
+        TextSendMessage(text=reply))
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
@@ -62,13 +62,9 @@ def newstop5(user_text):
     response = requests.get(url)
     response.encoding = response.apparent_encoding
     response = response.text
-
     bs = BeautifulSoup(response, 'html.parser')
-
     div_flashSummary_primary = bs.select('div.flashSummary_primary')
-
     count = 0
-#printの箇所はリストに代入をしてreturnでリスト返すようにしたほうがいい？
     if user_text == 'ニュース':
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
