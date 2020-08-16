@@ -42,11 +42,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     #reply = create_reply(event.message.text)
-    reply = newstop5(event.message.text)
+    news = newstop5(event.message.text)
     #event.message.textにLINEで送ったメッセージが入る
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=reply))
+        TextSendMessage(text=news))
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
@@ -57,7 +57,8 @@ def create_reply(user_text):
     return res['results'][0]['reply']
 
 def newstop5(user_text):
-    return = 'ニュース'
+    if user_text == 'ニュース':
+        return = 'ニュース'
     url = 'https://news.yahoo.co.jp/flash?p=1'
     response = requests.get(url)
     response.encoding = response.apparent_encoding
