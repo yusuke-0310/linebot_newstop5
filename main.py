@@ -57,6 +57,7 @@ def create_reply(user_text):
     return res['results'][0]['reply']
 
 def newstop5(user_text):
+    return = 'ニュース'
     url = 'https://news.yahoo.co.jp/flash?p=1'
     response = requests.get(url)
     response.encoding = response.apparent_encoding
