@@ -41,14 +41,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    reply = create_reply(event.message.text)
+    #reply = create_reply(event.message.text)
+    reply = newstop5()
     #event.message.textにLINEで送ったメッセージが入る
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="""
-        div_title.text
-        div_title_link
-        """))
+        TextSendMessage(text=reply))
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
