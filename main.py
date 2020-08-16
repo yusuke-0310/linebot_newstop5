@@ -58,6 +58,7 @@ def create_reply(user_text):
     return res['results'][0]['reply']
 
 def newstop5(user_text):
+    return('成功')
     print('成功')
     url = 'https://news.yahoo.co.jp/flash?p=1'
     response = requests.get(url)
