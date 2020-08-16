@@ -14,9 +14,9 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
-import requests
+#import requests
 
-#from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
