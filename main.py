@@ -58,26 +58,25 @@ def create_reply(user_text):
     return res['results'][0]['reply']
 
 def newstop5(user_text):
+    print('成功')
+    url = 'https://news.yahoo.co.jp/flash?p=1'
+    response = requests.get(url)
+    response.encoding = response.apparent_encoding
+    response = response.text
+    bs = BeautifulSoup(response, 'html.parser')
+    div_flashSummary_primary = bs.select('div.flashSummary_primary')
+    count = 0
     if user_text == 'ニュース':
-        return "成功"
-        url = 'https://news.yahoo.co.jp/flash?p=1'
-        response = requests.get(url)
-        response.encoding = response.apparent_encoding
-        response = response.text
-        bs = BeautifulSoup(response, 'html.parser')
-        div_flashSummary_primary = bs.select('div.flashSummary_primary')
-        count = 0
-    #if user_text == 'ニュース':
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
-                newstext = div_title.text
-                return newstext
-                #print(div_title.text)
+                #newstext = div_title.text
+                #return newstext
+                print(div_title.text)
             for div_title_link in div_flashSummary_primary[count].find_all('a'):
                 div_title_link = div_title_link.get('href')
-                newslink = div_title_link
-                return newslink
-                #print(div_title_link)
+                #newslink = div_title_link
+                #return newslink
+                print(div_title_link)
                 count += 1
             if count >= 5:
                 break
