@@ -64,8 +64,8 @@ def newstop5(user_text):
     response = response.text
     bs = BeautifulSoup(response, 'html.parser')
     div_flashSummary_primary = bs.select('div.flashSummary_primary')
-    count = 0
     result = []
+    count = 0
     if user_text == 'ニュース':
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
@@ -75,7 +75,7 @@ def newstop5(user_text):
             for div_title_link in div_flashSummary_primary[count].find_all('a'):
                 div_title_link = div_title_link.get('href')
                 newslink = div_title_link
-                result.append(newslink)
+                #result.append(newslink)
                 #print(div_title_link)
 
                 #return newstext
