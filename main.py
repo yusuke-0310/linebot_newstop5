@@ -68,7 +68,7 @@ def newstop5(user_text):
     trial = [1, 2, 3]
     count = 0
     if user_text == 'ニュース':
-        return trial
+        return str(trial)
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
                 newstext = div_title.text
