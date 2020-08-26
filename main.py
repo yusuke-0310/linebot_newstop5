@@ -65,10 +65,9 @@ def newstop5(user_text):
     bs = BeautifulSoup(response, 'html.parser')
     div_flashSummary_primary = bs.select('div.flashSummary_primary')
     result = []
-    trial = [1, 2, 3]
+    result = str(result)
     count = 0
     if user_text == 'ニュース':
-        return str(trial)
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
                 newstext = div_title.text
