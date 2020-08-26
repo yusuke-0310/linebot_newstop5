@@ -85,9 +85,9 @@ def newstop5(user_text):
                 count += 1
                 #return newstext, newslink
                 #continue
-            if count >= 5:
-                #return result
-                return '成功'
+            if count >= 2:
+                return result
+                #return '成功'
                 break
 
                 #return newstext, newslink
