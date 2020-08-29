@@ -46,8 +46,7 @@ def handle_message(event):
     news = newstop5(event.message.text)
     #event.message.textにLINEで送ったメッセージが入る
     for i in news:
-        return line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i))
-        continue
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i))
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
@@ -83,10 +82,10 @@ def newstop5(user_text):
                 #continue
                 #return newslink
                 #continue
-                #count += 1
+                count += 1
                 #return newstext, newslink
                 #continue
-            if count >= 1:
+            if count >= 5:
                 return result
                 #return '成功'
                 break
