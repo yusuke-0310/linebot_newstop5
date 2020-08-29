@@ -45,9 +45,11 @@ def handle_message(event):
     reply = create_reply(event.message.text)
     news = newstop5(event.message.text)
     #event.message.textにLINEで送ったメッセージが入る
+    messages = []
     for i in news:
-        print(i)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i))
+        messages.append(TextSendMessage(text=i))
+        print(news)
+    line_bot_api.reply_message(event.reply_token, messages)
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
@@ -71,12 +73,12 @@ def newstop5(user_text):
         while True:
             for div_title in div_flashSummary_primary[count].select('p.flashSummary_title'):
                 newstext = div_title.text
-                result.append(newstext)
+                #result.append(newstext)
                 #print(div_title.text)
             for div_title_link in div_flashSummary_primary[count].find_all('a'):
                 div_title_link = div_title_link.get('href')
                 newslink = div_title_link
-                #result.append(newslink)
+                result.append(newslink)
                 #print(div_title_link)
 
                 #return newstext
