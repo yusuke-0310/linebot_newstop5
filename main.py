@@ -47,6 +47,7 @@ def handle_message(event):
     #event.message.textにLINEで送ったメッセージが入る
     for i in news:
         return line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i))
+        continue
     #replyにcreate_replyの内容が反映される。replyに仮にevent.message.textを入れると送った内容がそのまま返信される
 
 def create_reply(user_text):
