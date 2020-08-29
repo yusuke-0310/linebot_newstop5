@@ -94,6 +94,8 @@ def newstop5(user_text):
     else:
         return false
         return 'ニュースと入力してください。'
+    
+    print('検索したいキーワードを入力してください。')
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
