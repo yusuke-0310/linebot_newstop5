@@ -64,6 +64,7 @@ def newstop5(user_text):
     bs = BeautifulSoup(response, 'html.parser')
     div_flashSummary_primary = bs.select('div.flashSummary_primary')
     result = []
+    false = ['ニュースと入力してください。']
     count = 0
     if user_text == 'ニュース':
         while True:
@@ -91,6 +92,7 @@ def newstop5(user_text):
 
                 #return newstext, newslink
     else:
+        return false
         return 'ニュースと入力してください。'
 
 if __name__ == "__main__":
